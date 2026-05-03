@@ -31,6 +31,9 @@ app.use('/api/settings',     require('./routes/settings'));
 app.use('/api/knowledge',    require('./routes/knowledge'));
 app.use('/api/appointments', require('./routes/appointments'));
 
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', time: new Date().toISOString() });
 });
